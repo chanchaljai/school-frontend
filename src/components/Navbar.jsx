@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className="sm:hidden">
             <MdMenu onClick={() => setOpen(!open)} />
             {open && (
-              <ul className="flex flex-col  gap-6 font-medium">
+              <ul className="fixed top-8 left-1/2 transform -translate-x-1/2 flex flex-col gap-6 font-medium mt-8">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
