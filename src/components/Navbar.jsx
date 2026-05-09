@@ -36,16 +36,16 @@ const Navbar = () => {
               {open && (
                 <ul className="fixed top-8 left-1/2 transform -translate-x-1/2  flex flex-col gap-6 font-medium mt-10">
                   <li>
-                    <Link to="/" className="bg-gray-200 rounded-2xl p-2">Home</Link>
+                    <Link to="/" className="bg-gray-200 rounded-2xl p-2 px-10">Home</Link>
                   </li>
                   <li>
-                    <Link to="/about" className="bg-gray-200 rounded-2xl p-2">About</Link>
+                    <Link to="/about" className="bg-gray-200 rounded-2xl p-2 px-10">About</Link>
                   </li>
                   <li>
-                    <Link to="/login" className="bg-gray-200 rounded-2xl p-2">Login</Link>
+                    <Link to="/login" className="bg-gray-200 rounded-2xl p-2 px-10">Login</Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="bg-gray-200 rounded-2xl p-2">Contact</Link>
+                    <Link to="/contact" className="bg-gray-200 rounded-2xl p-2 px-8">Contact</Link>
                   </li>
                 </ul>
               )}
