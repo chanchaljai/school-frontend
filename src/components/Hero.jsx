@@ -17,7 +17,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative h-[400px] overflow-hidden">
+    <div className="relative h-[400px] overflow-hidden bg-gray-100 dark:bg-black">
       {images.map((img, index) => (
         <img
           key={index}
