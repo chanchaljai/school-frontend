@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import Dark from "./Dark";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   return (
-    <div className=" bg-white text-black dark:bg-gray-800 dark:text-white">
+    <div className=" bg-white text-black dark:bg-gray-800 dark:text-white fixed top-0 left-0 z-50 w-full">
       <div className=" max-w-7xl mx-auto p-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -24,7 +25,7 @@ const Navbar = () => {
                 <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/register">Login</Link>
               </li>
               <li>
                 <Link to="/contact">Contact</Link>
