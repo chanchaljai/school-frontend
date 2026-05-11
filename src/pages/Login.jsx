@@ -29,8 +29,11 @@ function Login() {
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.message);
-        return;
+        if (data.message === "Invalid email or password") {
+          alert("User not registered or wrong credentials");
+          navigate("/register"); // 👈 register page pe bhej do
+          return;
+        }
       }
 
       // 🧠 role backend se aayega
@@ -44,17 +47,16 @@ function Login() {
       else if (role === "teacher") navigate("/teacher");
       else if (role === "admin") navigate("/admin");
       else if (role === "accountant") navigate("/accountant");
-
     } catch (err) {
       console.log(err);
       alert("Server error");
+      navigate("/register");
     }
   };
 
   return (
     <div className="flex justify-center items-center h-screen">
       <form onSubmit={handleLogin} className="p-5 shadow-md w-80 space-y-3">
-
         <h2 className="text-xl font-bold text-center">Login</h2>
 
         <input
@@ -75,10 +77,7 @@ function Login() {
           required
         />
 
-        <button className="bg-blue-600 text-white w-full p-2">
-          Login
-        </button>
-
+        <button className="bg-blue-600 text-white w-full p-2">Login</button>
       </form>
     </div>
   );
