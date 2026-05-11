@@ -6,7 +6,7 @@ import Dark from "./Dark";
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   return (
-    <div className=" bg-white text-black dark:bg-black dark:text-white">
+    <div className=" bg-white text-black dark:bg-gray-800 dark:text-white">
       <div className=" max-w-7xl mx-auto p-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
