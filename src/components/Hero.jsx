@@ -20,7 +20,7 @@ const Hero = () => {
 
   return (
     <div className="w-full h-full bg bg-white dark:bg-gray-800">
-      <div ref={ref} className="max-w-6xl mx-auto relative">
+      <div ref={ref} className="max-w-6xl mx-auto relative opacity-30">
         <img
           className="w-full h-[400px] overflow-hidden absolute inset-0"
           src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
