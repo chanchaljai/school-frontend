@@ -9,9 +9,9 @@ const Hero = () => {
       const tl = gsap.timeline({ repeat: -1 });
       tl.from(".imageContainer", {
         width: 0,
-        duration: 2,
-        ease: "power4.inOut",
-        stagger: 2,
+        duration: 5,
+        ease: "none",
+        stagger: 3.5,
       });
     }, ref);
 
@@ -26,8 +26,8 @@ const Hero = () => {
           src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="background"
         />
-        <div className="relative w-full h-[400px] object-cover">
-          <div className="imageContainer absolute inset-0 overflow-hidden">
+        <div className="relative w-full h-[400px] object-cover block">
+          <div className="imageContainer absolute left-0 top-0 w-full h-full overflow-hidden">
             <img
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1719159381916-062fa9f435a6?w=1200&auto=format&fit=crop&q=80"
@@ -35,7 +35,7 @@ const Hero = () => {
             />
           </div>
 
-          <div className="imageContainer absolute inset-0 overflow-hidden">
+          <div className="imageContainer absolute left-0 top-0 w-full h-full overflow-hidden">
             <img
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1525088068454-ff2c453e50e9?w=1200&auto=format&fit=crop&q=80"
@@ -43,7 +43,7 @@ const Hero = () => {
             />
           </div>
 
-          <div className="imageContainer absolute inset-0 overflow-hidden">
+          <div className="imageContainer absolute left-0 top-0 w-full h-full overflow-hidden">
             <img
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1613662449996-35130a75be10?w=1200&auto=format&fit=crop&q=80"
