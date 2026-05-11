@@ -1,33 +1,49 @@
-import React, { useEffect, useState } from "react";
-import img1 from "../assets/img1.jpg";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-
-const images = [img1, img2, img3];
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Hero = () => {
-  const [current, setCurrent] = useState(0);
+  const ref = useRef(null);
 
   useEffect(() => {
-    const slider = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 3000);
+    const ctx = gsap.context(() => {
+      gsap.from(".imageContainer", {
+        width: 0,
+        duration: 2,
+        ease: "power4.inOut",
+        stagger: 2,
+      });
+    }, ref);
 
-    return () => clearInterval(slider);
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="relative h-[400px] overflow-hidden bg-gray-100 dark:bg-black">
-      {images.map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt=""
-          className={`absolute w-full h-full object-contain transition-opacity duration-700 ${
-            current === index ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+    <div ref={ref} className="max-w-6xl mx-auto">
+      <div className="relative w-full h-[400px] overflow-hidden">
+        <div className="imageContainer absolute inset-0 overflow-hidden">
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1719159381916-062fa9f435a6?w=1200&auto=format&fit=crop&q=80"
+            alt="students"
+          />
+        </div>
+
+        <div className="imageContainer absolute inset-0 overflow-hidden">
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1525088068454-ff2c453e50e9?w=1200&auto=format&fit=crop&q=80"
+            alt="football"
+          />
+        </div>
+
+        <div className="imageContainer absolute inset-0 overflow-hidden">
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1613662449996-35130a75be10?w=1200&auto=format&fit=crop&q=80"
+            alt="classroom"
+          />
+        </div>
+      </div>
     </div>
   );
 };
