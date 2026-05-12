@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   return (
-    <div className=" bg-white text-black dark:bg-gray-800 dark:text-white fixed top-0 left-0 z-50 w-full">
+    <div className="bg-blue-50 text-black dark:bg-gray-800 dark:text-white w-full">
       <div className=" max-w-7xl mx-auto p-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">

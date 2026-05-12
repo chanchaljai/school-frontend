@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function Register() {
   const navigate = useNavigate();
@@ -29,94 +30,107 @@ function Register() {
 
       if (res.ok) {
         alert("Register successful");
-        navigate("/login"); // login page
+        navigate("/login");
       } else {
-        alert(data.message || "Error");
+        alert(data.message || "Error occurred");
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
       alert("Server error");
     }
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Register</h2>
+    <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-blue-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
 
-      <input
-        name="name"
-        placeholder="Name"
-        value={form.name}
-        onChange={handleChange}
-        style={styles.input}
-      />
+      {/* Navbar */}
+      <Navbar />
 
-      <input
-        name="email"
-        placeholder="Email"
-        value={form.email}
-        onChange={handleChange}
-        style={styles.input}
-      />
+      {/* Content Center */}
+      <div className="flex flex-1 items-center justify-center px-4">
 
-      <input
-        name="password"
-        type="password"
-        placeholder="Password"
-        value={form.password}
-        onChange={handleChange}
-        style={styles.input}
-      />
+        {/* Card */}
+        <div className="w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl rounded-2xl p-6">
 
-      {/* Role select */}
-      <select
-        name="role"
-        value={form.role}
-        onChange={handleChange}
-        style={styles.input}
-      >
-        <option value="student">Student</option>
-        <option value="teacher">Teacher</option>
-        <option value="accountant">Accountant</option>
-        <option value="admin">Admin</option>
-      </select>
+          <h2 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+            Create Account
+          </h2>
 
-      <button onClick={handleRegister} style={styles.button}>
-        Register
-      </button>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleRegister();
+            }}
+            className="space-y-4"
+          >
 
-      <p onClick={() => navigate("/login")} style={styles.link}>
-        Already registered? Login
-      </p>
+            {/* Name */}
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
+              required
+            />
+
+            {/* Email */}
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={form.email}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
+              required
+            />
+
+            {/* Password */}
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
+              required
+            />
+
+            {/* Role */}
+            <select
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
+            >
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="accountant">Accountant</option>
+              <option value="admin">Admin</option>
+            </select>
+
+            {/* Button */}
+            <button
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+            >
+              Register
+            </button>
+
+          </form>
+
+          <p
+            onClick={() => navigate("/login")}
+            className="text-center text-sm text-blue-600 mt-4 cursor-pointer hover:underline"
+          >
+            Already have an account? Login
+          </p>
+
+        </div>
+      </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    width: "300px",
-    margin: "50px auto",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  },
-  input: {
-    padding: "10px",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-  },
-  button: {
-    padding: "10px",
-    background: "blue",
-    color: "white",
-    border: "none",
-    cursor: "pointer",
-  },
-  link: {
-    cursor: "pointer",
-    color: "green",
-    textAlign: "center",
-  },
-};
 
 export default Register;
