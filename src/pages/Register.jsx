@@ -41,7 +41,7 @@ function Register() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-blue-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
+    <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-blue-50 to-gray-200 dark:from-gray-700 dark:to-gray-800">
 
       {/* Navbar */}
       <Navbar />
